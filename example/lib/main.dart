@@ -41,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     // Load the animation file from the bundle, note that you could also
     // download this. The RiveFile just expects a list of bytes.
-    rootBundle.load('assets/off_road_car.riv').then(
+    rootBundle.load('assets/happy_christmas.riv').then(
       (data) async {
         final file = RiveFile();
 
@@ -49,10 +49,15 @@ class _MyHomePageState extends State<MyHomePage> {
         if (file.import(data)) {
           // The artboard is the root of the animation and gets drawn in the
           // Rive widget.
-          final artboard = file.mainArtboard;
+          final artboard = file.artboardByName("Illustration");
           // Add a controller to play back a known animation on the main/default
           // artboard.We store a reference to it so we can toggle playback.
-          artboard.addController(_controller = SimpleAnimation('idle'));
+          artboard.addController(_controller = SimpleAnimation('Milk_Drink'));
+          artboard.addController(_controller = SimpleAnimation('Cookies'));
+          artboard.addController(_controller = SimpleAnimation('Holly'));
+          artboard.addController(_controller = SimpleAnimation('Harriet'));
+          artboard.addController(_controller = SimpleAnimation('Robert'));
+          artboard.addController(_controller = SimpleAnimation('Nelly'));
           setState(() => _riveArtboard = artboard);
         }
       },
